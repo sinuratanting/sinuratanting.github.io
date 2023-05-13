@@ -11,7 +11,7 @@ scaler = pickle.load(open('scaler.pkl', 'rb'))
 # Define home page
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 # Define prediction
 @app.route('/predict', methods=['POST'])
@@ -27,7 +27,7 @@ def predict():
     # Get the predicted class
     predicted_class = model.predict(input_data)[0]
     
-    return render_template('home.html', predicted_class=predicted_class)
+    return render_template('index.html', predicted_class=predicted_class)
 
 if __name__ == '__main__':
     app.run(debug=True)
